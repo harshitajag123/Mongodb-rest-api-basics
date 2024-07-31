@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 3000;
 const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded());
@@ -89,7 +89,7 @@ app.delete("/users/:id", async (req, res) => {
 
 app.listen(port, () => {
 	mongoose
-		.connect(process.env.MONGODB_URL)
+		.connect(process.env.MONGODB_URI)
 		.then(() => console.log("DB connection established.."))
 		.catch((error) => console.log(error));
 });
